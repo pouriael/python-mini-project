@@ -1,0 +1,15 @@
+import smtplib as s
+
+ob = s.SMTP("smtp.gmail.com",587)
+ob.ehlo()
+ob.starttls()
+email = input("enter email: ")
+password = input("enter password: ")
+ob.login(email,password)
+subject = input("enter your subject: ")
+body = input("enter your body email: ")
+message = "subject:{}\n\n{}".format(subject,body)
+listadd = input(("enter your destination: "))
+ob.sendmail(email,listadd,message)
+print("send mail")
+ob.quit()
